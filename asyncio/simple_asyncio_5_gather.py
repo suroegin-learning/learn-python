@@ -2,7 +2,6 @@
 asyncio.gather() - Returns a Future instance, allowing high level grouping of tasks
 """
 
-import random
 import pprint
 import asyncio
 
