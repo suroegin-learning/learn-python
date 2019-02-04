@@ -1,0 +1,12 @@
+# Ignore files
+**/migrations/*
+
+db.sqlite3
+**/*.log
+**/*.pyc
+
+
+# Ignore folders
+.git
+__pycache__
+**/__pycache__

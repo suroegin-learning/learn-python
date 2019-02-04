@@ -2,19 +2,20 @@ from num2words import num2words
 
 NUMBERS = 1_000_000
 
-max_length = [0, None, None]
+position_name_and_size = [
+    (i, n, len(n))
+    for i, n
+    in enumerate([
+        num2words(name,
+                  ordinal=True,
+                  lang='en').replace(" and ", "-and-").replace(", ", "-").replace(" ", "-")
+        for name
+        in range(1, NUMBERS+1)
+    ], 1)
+]
 
-for number in range(NUMBERS):
-    generated_text = num2words(number,
-                               ordinal=True,
-                               lang='en')\
-        .replace(" and ", "-and-")\
-        .replace(", ", "-")\
-        .replace(" ", "-")
+# Show total result
+# print(position_name_and_size)
 
-    if len(generated_text) > max_length[0]:
-        max_length[0] = len(generated_text)
-        max_length[1] = generated_text
-        max_length[2] = number
-
-print(max_length)
+# Show max length name, it's number and position
+print(max([x for x in position_name_and_size], key=lambda y: y[2]))
